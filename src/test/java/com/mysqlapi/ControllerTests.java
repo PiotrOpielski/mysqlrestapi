@@ -1,12 +1,11 @@
 package com.mysqlapi;
 
-/**
- * Created by piotr on 17.07.17.
- */
+
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.Test;
@@ -26,12 +25,19 @@ public class ControllerTests {
     private MockMvc mockMvc;
 
     @Test
-    public void homepageControllerTest() throws Exception {
+    public void testHomepageController() throws Exception {
 
         this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString("MySQL REST api homepage.")));
+
     }
 
+    /*@Test
+    public void testSelectAllFromTable() throws Exception {
+
+        this.mockMvc.perform(get("/testTable")).andDo(print()).andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value("1"));
+    }*/
 
 
 }
