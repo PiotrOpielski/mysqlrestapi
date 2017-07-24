@@ -14,7 +14,8 @@ public class Controller {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
-
+    @Autowired
+    StatementsController statementsController;
 
     @RequestMapping("/")
     public String homepageController() {
