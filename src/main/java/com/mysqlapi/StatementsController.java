@@ -28,7 +28,7 @@ public class StatementsController {
         return JSONFileArray;
     }
 
-    public String getFileAsString(String filename) throws IOException {
+    private String getFileAsString(String filename) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(filename));
         StringBuilder sb = new StringBuilder();
         String line = br.readLine();
@@ -39,7 +39,7 @@ public class StatementsController {
         return sb.toString();
     }
 
-    public JSONArray getStringAsJSONArray(String string) throws JSONException {
+    private JSONArray getStringAsJSONArray(String string) throws JSONException {
         return new JSONArray(string);
     }
 
