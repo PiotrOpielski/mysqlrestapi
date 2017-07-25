@@ -1,12 +1,13 @@
-MySQL REST api
+**MySQL REST api**
 
-Work still in progress, api is not working yet.
+In this moment api supports JWT tokens, and doing one-condition SQL queries.
+Queries are saved in statements.json file, can be accessed from api url http://localhost:8080/api/statementID/condition
+Token must be given in POST header in form "Token":"actualtoken".
 
-Prepared Statement is saved, then in url address you can select statement and insert values.
+Warnings:
 
-For example if statement3 = SELECT * FROM users WHERE user_id = ?
-then url will be http://address/token/statement3/1004
 
-Results will be given in json format.
-
-Administrator panel will help managing statements, creating new and deleting old.
+key.key is just sample file, better generate your own key.
+Absolute paths must be replaced in file paths.
+Token can be obtained from /login page. In this moment credentials are fixed.
+Work still in progress, goal is to api work out-of-box.
