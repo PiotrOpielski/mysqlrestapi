@@ -23,11 +23,14 @@ public class Controller {
         return "MySQL REST api homepage.";
     }
 
-    @RequestMapping(value = "testTable/{table}", method = RequestMethod.GET)
-    public List<Map<String, Object>> selectAllFromTable(@PathVariable String table) {
-
-        return jdbcTemplate.queryForList("SELECT * FROM testTable WHERE id = ? ;", new Object[]{table});
-
+    @RequestMapping(value = "/api/{statement}/{value1}", method = RequestMethod.GET)
+    public List<Map<String, Object>> selectAllFromTable(@PathVariable String statement, @PathVariable String value1) {
+        if (!statementsController.getStatementFromId(statement).equals(null)) {
+            System.out.println(statementsController.getStatementFromId(statement));
+            return jdbcTemplate.queryForList(statementsController.getStatementFromId(statement), new Object[]{value1});
+        } else{
+            return jdbcTemplate.queryForList("SELECT * FROM def WHERE id=1;");
+        }
     }
 
 
