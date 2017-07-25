@@ -19,7 +19,7 @@ public class AuthFilter implements Filter
 
         if (authorization != null)
         {
-            JwtAuthToken token = new JwtAuthToken(authorization);
+            AuthToken token = new AuthToken(authorization);
             SecurityContextHolder.getContext().setAuthentication(token);
         }
         filterChain.doFilter(servletRequest, servletResponse);
