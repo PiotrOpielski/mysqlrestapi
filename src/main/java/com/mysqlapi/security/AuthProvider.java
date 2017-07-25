@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class AuthProvider implements AuthenticationProvider {
 
     @Autowired
-    private UserAuthenticationService authenticationService;
+    private UserAuthService authenticationService;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
@@ -28,6 +28,6 @@ public class AuthProvider implements AuthenticationProvider {
 
     @Override
     public boolean supports(Class<?> aClass) {
-        return JwtAuthToken.class.equals(aClass);
+        return AuthToken.class.equals(aClass);
     }
 }
