@@ -15,6 +15,6 @@ public class MysqlapiApplication {
 
     @Bean
     public StatementsController statementsController() throws IOException {
-        return new StatementsController("src/main/resources/statements.json");
+        return new StatementsController("/home/piotr/IdeaProjects/mysqlapi/build/resources/main/statements.json");
     }
 }
