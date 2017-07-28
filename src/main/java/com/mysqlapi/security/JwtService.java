@@ -31,6 +31,7 @@ public class JwtService {
                 .setSubject(username)
                 .setExpiration(expiration)
                 .setIssuer(ISSUER)
+                .setIssuedAt(Date.from(LocalDateTime.now(UTC).toInstant(UTC)))
                 .signWith(SignatureAlgorithm.HS512, secretKey)
                 .compact();
     }
